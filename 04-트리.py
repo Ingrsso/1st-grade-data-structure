@@ -29,28 +29,28 @@ class BinaryTee:
 			else:
 				return search_recursive(node.right, value)
 		return search_recursive(self.root, value)
-	
-	def delete(self, value):
-			def delete_recursive(node, value):
-					if not node:
-							return node
-					if value < node.value:
-							node.left = delete_recursive(node.left, value)
-					elif value > node.value:
-							node.right = delete_recursive(node.right, value)
-					else:
-							if not node.left and not node.right:
-									return None
-							elif not node.left:
-									return node.right
-							elif not node.right:
-									return node.left
 
-							temp = self.find_min(node.right)
-							node.value = temp.value
-							node.right = delete_recursive(node.right, temp.value)  
+	def delete(self, value):
+		def delete_recursive(node, value):
+			if not node:
 					return node
-			self.root = delete_recursive(self.root, value)
+			if value < node.value:
+					node.left = delete_recursive(node.left, value)
+			elif value > node.value:
+					node.right = delete_recursive(node.right, value)
+			else:
+					if not node.left and not node.right:
+							return None
+					elif not node.left:
+							return node.right
+					elif not node.right:
+							return node.left
+
+					temp = self.find_min(node.right)
+					node.value = temp.value
+					node.right = delete_recursive(node.right, temp.value)  
+			return node
+		self.root = delete_recursive(self.root, value)
 		
 	def find_min(self,node):
 		while node.left:

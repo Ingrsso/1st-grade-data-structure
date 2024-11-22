@@ -34,6 +34,3 @@ print("스택 최상단 요소:", stack.peek())
 print("스택에서 꺼낸 요소:", stack.pop())
 print("스택 크기:", stack.size())
 print("스택이 비어 있는가:", stack.is_empty())
-
-
-

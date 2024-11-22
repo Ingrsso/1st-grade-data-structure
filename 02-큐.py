@@ -16,7 +16,6 @@ class Queue:
 		
 	def size(self):
 		return len(self.items)
-	
 
 queue = Queue()
 queue.enqueue(1)
